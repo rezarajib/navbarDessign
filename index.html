@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"  data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navbarDesign</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="p-5">
+    <!-- Navbar -->
+    <nav class="flex items-center justify-between p-4 border-b shadow-md bg-white">
+        <div class="text-xl font-bold flex items-center">
+            <img src="assets/Logo.png" alt="PH Tube Logo" class="w-10 h-10 mr-2"> PH Tube
+        </div>
+        <div class="flex items-center border rounded-lg overflow-hidden w-full max-w-md">
+            <input type="text" id="search-input" placeholder="Search..." class="p-2 w-full outline-none">
+            <button onclick="searchVideos()" class="bg-blue-500 text-white px-4 py-2">Search</button>
+        </div>
+        <button onclick="sortVideos()" class="btn btn-outline btn-primary">Sort by Views</button>
+    </nav>
+    
+    <!-- Category Section -->
+    <div class="text-center my-5">
+        <div id="category-buttons" class="flex flex-wrap justify-center gap-4"></div>
+    </div>
+    
+    <!-- Video Section -->
+    <div id="video-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    <div id="no-video" class="hidden text-center text-lg font-semibold text-red-500">No Videos Available</div>
+
+    <!-- Video Details Modal -->
+    <dialog id="video-modal" class="modal">
+        <div class="modal-box">
+            <h2 id="modal-title" class="text-lg font-bold"></h2>
+            <p id="modal-author" class="text-sm"></p>
+            <p id="modal-description" class="mt-2"></p>
+            <div class="modal-action">
+                <form method="dialog">
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+</body>
+
+    <!-- script file -->
+     <script src="js/app.js"></script>
+</body>
+
+</html>
