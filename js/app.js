@@ -11,10 +11,25 @@ const loadCategories = () =>{
     .catch((error) => console.log(error))
     // console.log("load categories created");
 }
+
+// {
+//     "category_id": "1001",
+//     "category": "Music"
+// }
 // create displayCategories
 
-const displayCategories = (data) =>{
+const displayCategories = (categories) =>{
+    const categoriesContainer = document.getElementById('categories');
     // console.log("display categories created");
+    // console.log(data);
+    categories.forEach((item )=> {
+        console.log(item);
+        // create a button 
+        const button = document.createElement("button");
+        button.classList = "btn"; 
+        button . innerText = item.category;
+
+    });
 }
 // call function loadCategories
 loadCategories();

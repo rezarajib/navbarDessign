@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PH Tube</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center p-4 border-b shadow-md">
+        <h1 class="text-2xl font-bold text-red-500 flex items-center"><span class="text-black">PH</span> Tube</h1>
+        <div class="flex items-center">
+            <input type="text" id="searchInput" class="border p-2 rounded-l-md" placeholder="Search videos">
+            <button onclick="searchVideos()" class="bg-blue-500 text-white p-2 rounded-r-md">Search</button>
+        </div>
+        <button onclick="sortVideos()" class="bg-gray-500 text-white px-4 py-2 rounded-md">Sort by Views</button>
+    </nav>
+    
+    <!-- Category Section -->
+    <div id="categories" class="flex justify-center gap-4 p-4"></div>
+    
+    <!-- Video Section -->
+    <div id="video-container" class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4"></div>
+    
+    <!-- <script>
+        let videos = [];
+        const API_BASE = 'https://openapi.programming-hero.com/api/phero-tube/videos';
+
+        async function loadCategories() {
+            const res = await fetch(`${API_BASE}/categories`);
+            const data = await res.json();
+            const categories = data.data;
+            const container = document.getElementById('categories');
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.innerText = cat.category;
+                btn.className = "px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-400";
+                btn.onclick = () => loadVideosByCategory(cat.id);
+                container.appendChild(btn);
+            });
+        }
+
+        async function loadVideosByCategory(categoryId) {
+            const res = await fetch(`${API_BASE}/category/${categoryId}`);
+            const data = await res.json();
+            videos = data.data;
+            displayVideos();
+        }
+
+        function displayVideos() {
+            const container = document.getElementById('video-container');
+            container.innerHTML = '';
+            if (videos.length === 0) {
+                container.innerHTML = '<p class="text-center text-red-500">No videos found</p>';
+                return;
+            }
+            videos.forEach(video => {
+                container.innerHTML += `
+                    <div class="border p-4 rounded-md shadow-lg">
+                        <img src="${video.thumbnail}" class="w-full h-48 object-cover rounded-md">
+                        <h3 class="text-lg font-bold">${video.title}</h3>
+                        <p>${video.views} views</p>
+                        <p>${video.verified ? '<span class="text-blue-500">✔ Verified</span>' : ''}</p>
+                    </div>
+                `;
+            });
+        }
+
+        function searchVideos() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filteredVideos = videos.filter(video => video.title.toLowerCase().includes(query));
+            videos = filteredVideos;
+            displayVideos();
+        }
+
+        function sortVideos() {
+            videos.sort((a, b) => b.views - a.views);
+            displayVideos();
+        }
+
+        loadCategories();
+    </script> -->
+</body>
+</html>
